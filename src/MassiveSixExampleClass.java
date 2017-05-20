@@ -11,7 +11,7 @@ public class MassiveSixExampleClass {
     public static void main(String[] args) throws IOException {
 
         Scanner in = new Scanner(System.in);
-        int[] sum;
+        int sum = 0;
 
             int [][] array = new int[4][4];
 
@@ -23,11 +23,15 @@ public class MassiveSixExampleClass {
         }
         System.out.print(Arrays.deepToString(array));
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < array.length; i++) {
             if (i%2 == 0){
-                sum  array[i];
+                for (int j = 0; j < array[i].length; j++) {
+                    sum += array[i][j];
+                }
             }
         }
+        System.out.println();
+        System.out.println(sum);
 
     }
 }
