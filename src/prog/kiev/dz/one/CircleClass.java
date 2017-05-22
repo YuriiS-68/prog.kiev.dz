@@ -7,33 +7,30 @@ import java.util.Scanner;
  */
 public class CircleClass {
 
-    static double pi = 3.1415;
-
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите 0 если хотите ввести radius круга или введите 1 если хотите ввести его diametr :");
         short variant = sc.nextShort();
         if (variant == 0){
-            System.out.println("Введите radius круга в формате (0.0): ");
+            System.out.println("Введите radius круга в формате (0,0): ");
             double r = sc.nextDouble();
-            System.out.println(areaCircleRadius(r, pi));
+            System.out.printf("%.2f",areaCircleRadius(r));
         }
         else {
-            System.out.println("Введите diametr круга в формате (0.0): ");
+            System.out.println("Введите diametr круга в формате (0,0): ");
             double d = sc.nextDouble();
-            System.out.println(areaCircleDiametr(d, pi));
+            System.out.printf("%.2f",areaCircleDiametr(d));
         }
-
     }
 
-    public static double areaCircleRadius(double r, double pi){
-        double areaCircle = (r * r)*pi;
+    public static double areaCircleRadius(double r){
+        double areaCircle = (r * r)*Math.PI;
         return areaCircle;
     }
 
-    public static double areaCircleDiametr(double d, double pi){
-        double areaCircle = (pi / 4)*(d * d);
+    public static double areaCircleDiametr(double d){
+        double areaCircle = (Math.PI / 4)*(d * d);
         return areaCircle;
 
     }
