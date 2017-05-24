@@ -8,27 +8,24 @@ import java.util.Random;
  */
 public class ExampleThreeClass {
     public static void main(String[] args) {
+
         Random rnd = new Random();
+        int massLenght = 1000000;
+        int count = 0;
 
-        final int start = 10;
-        final int end = 1000;
-        final int rand = random(10, 1000, rnd);
-        final int randS = randomSymbol(65, 122, rnd);
+        String [] massStrok = new String[massLenght];
 
-
-        System.out.println((char) randS);
-
-        char [] massStrok = new char[1000000];
-        for (char c : massStrok) {
-            char[] charStr = new char[rand];
-            for (char c1 : charStr) {
-                charStr[c1] = (char)randS;
+        for (int i = 0; i < massLenght; i++) {
+            StringBuilder str = new StringBuilder();
+            int strLenght = random(10, 1000, rnd);
+            for (int j = 0; j <= strLenght; j++) {
+                char symbol = (char)((int)randomSymbol(65, 122, rnd));
+                str.append(symbol);
             }
-            new String (charStr);
+            massStrok[i] = str.toString();
+            count += massStrok[i].length();
         }
-        System.out.println(Arrays.toString(massStrok));
-
-
+        System.out.println(count);
     }
 
     public static int random(int start, int end, Random rnd){
@@ -40,6 +37,4 @@ public class ExampleThreeClass {
         end -= start;
         return (int) (Math.random() * ++end) + start;
     }
-
-
 }
